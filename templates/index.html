@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protein Interaction Prediction</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Protein Interaction Prediction</h1>
+        <form method="POST">
+            <div class="form-group">
+                <label for="protein1">Protein 1 Sequence:</label>
+                <textarea id="protein1" name="protein1" rows="4" placeholder="Enter protein sequence"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="protein2">Protein 2 Sequence:</label>
+                <textarea id="protein2" name="protein2" rows="4" placeholder="Enter protein sequence"></textarea>
+            </div>
+            <button type="submit">Predict Interaction</button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if interaction %}
+            <div id="result">
+                <p><strong>Interaction: </strong>{{ interaction }}</p>
+                <p><strong>Confidence: </strong>{{ confidence }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
